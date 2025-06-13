@@ -15,7 +15,7 @@ console.log(contador);
   return (
     <View>
       <Text>ScreenHome</Text>
-      <Button icon="" mode="contained" onPress={navigation.push('')}>
+      <Button icon="" mode="contained" onPress={()=>navigation.push('luces')}>
         Press me
       </Button>
       <Card>

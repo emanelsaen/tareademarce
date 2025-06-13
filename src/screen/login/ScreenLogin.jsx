@@ -2,12 +2,15 @@ import { StyleSheet, Text, View } from 'react-native'
 import { TextInput } from 'react-native-paper';
 import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
+import { useContext } from 'react';
+import { estadoPerfilGlobal } from '../../context/contextData';
 import React from 'react'
 
 export default function ScreenLogin() {
     const [email, setEmail] = React.useState("");
     const [text, setText] = React.useState("");
     const navigation = useNavigation();
+    const { login } = useContext(estadoPerfilGlobal);
     return (
         <View>
             <Text style={{ textAlign: 'center', fontSize: 30, marginTop: 50, marginBottom: 100 }}>Login</Text>
@@ -26,14 +29,19 @@ export default function ScreenLogin() {
                     onChangeText={text => setText(text)
                     }
                 />
-                <Button style={styles.boton} icon="login" mode="contained" onPress={() => navigation.navigate('home')}>
-                    Iniciar sesion
+                <Button
+                    style={styles.boton}
+                    icon="login"
+                    mode="contained"
+                    onPress={()=>login()} // <-- así llamas la función que cambia el estado de login
+                >
+                    Iniciar Sesión
                 </Button>
-             
+
                 <Button style={styles.botonCrear} icon="login" mode="contained" onPress={() => navigation.navigate('crearCuenta')}>
                     crear cuenta
                 </Button>
-             
+
             </View>
         </View>
     )
