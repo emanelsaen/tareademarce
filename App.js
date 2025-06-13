@@ -3,12 +3,18 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Navegacion from './Navegacion';
+import StateGeneral from './src/context/StateGeneral';
+import StatePerfilGlobal from './src/context/StatePerfilGlobal';
 
 export default function App() {
   return (
+    <StatePerfilGlobal>
+    <StateGeneral> 
     <NavigationContainer>
       <Navegacion />
     </NavigationContainer>
+    </StateGeneral>
+    </StatePerfilGlobal>
   );
 }
 

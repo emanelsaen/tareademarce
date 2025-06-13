@@ -1,21 +1,21 @@
+import React,{useContext}from "react";
+import { estadoPerfilGlobal } from "./src/context/contextData";//llamar nuestro archivo de context
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { createStackNavigator } from "@react-navigation/stack";
-import React from "react";
+import FontAwesome from "react-native-vector-icons/FontAwesome";
+// Screens principales
+import ScreenHome from "./src/screen/home/ScreenHome";
+import ScreenAbout from "./src/screen/about/ScreenAbout";
+import ScreenSetting from "./src/screen/setting/ScreenSetting";
 
-//llamar nuestro screen padre
-import ScreenHome from "./screen/home/ScreenHome";
-import ScreenAbout from "./screen/about/ScreenAbout";  
-import ScreenSetting from "./screen/setting/ScreenSetting";
-import FontAwesome from 'react-native-vector-icons/FontAwesome';
+// Screens hijos de Home
+import HomeDetalles from "./src/screen/home/HomeDetalles";
+import LucesCasa from "./src/screen/home/LucesCasa";
+import PuertasCasa from "./src/screen/home/PuertasCasa";
 
-//Lamar a nuestros hijosHome 
-import HomeDetalles from "./screen/home/HomeDetalles";
-import LucesCasa from "./screen/home/LucesCasa";
-import PuertasCasa from "./screen/home/PuertasCasa";
-
-//Llamar a nuestros screen de login
-import ScreenLogin from "./screen/login/ScreenLogin";
-import ScreenCrearCuenta from "./screen/login/ScreenCrearCuenta";
+// Screens de login
+import ScreenLogin from "./src/screen/login/ScreenLogin";
+import ScreenCrearCuenta from "./src/screen/login/ScreenCrearCuenta";
 
 //import de las dependencias de react-navigation
 const Tab = createBottomTabNavigator();
@@ -119,9 +119,11 @@ function Mytabs(){
 }
 
 export default function Navegacion() {
-    const user = true; // Simulación de un usuario autenticado
-    return (
-       //<Mytabs/>
-       <MystackLogin/>
-    );
+    const {isLogin} = useContext(estadoPerfilGlobal);
+    return(
+        <>
+        {isLogin ? <Mytabs/> : <MystackLogin/>}
+        </>
+    ) ;
+    
 }
