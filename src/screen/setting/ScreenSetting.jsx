@@ -12,7 +12,7 @@ export default function ScreenSetting() {
   return (
     <View>
       <Text>ScreenSetting</Text>
-      <Button title='LogOut' onPress={loginOut}>
+      <Button title='regresar a login' onPress={loginOut}>
       </Button>
     </View>
   )

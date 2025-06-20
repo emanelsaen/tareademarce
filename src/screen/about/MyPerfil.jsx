@@ -4,7 +4,7 @@ import React from 'react'
 export default function MyPerfil() {
   return (
     <View>
-      <Text>Nombre: Kevs</Text>
+      <Text>oswaldo</Text>
     </View>
   )
 }

@@ -16,7 +16,7 @@ console.log(contador);
     <View>
       <Text>ScreenHome</Text>
       <Button icon="" mode="contained" onPress={()=>navigation.push('luces')}>
-        Press me
+        Luces casa
       </Button>
       <Card>
         <Text>
